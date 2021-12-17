@@ -36,7 +36,11 @@ paths = []
       end
       x += vx
       y += vy
-      vx -= 1 if vx > 0      
+      if vx > 0
+        vx -= 1
+      elsif vx < 0
+        vx += 1
+      end
       vy -= 1
     end
   end
