@@ -144,27 +144,17 @@ def split(n)
 end
 
 def reduce(n)
-  state = 'explode'
-  loop do
-    case state
-    when 'explode'
-      new_n = explode(n)
-      if n == new_n
-        state = 'split'
-      else
-        n = new_n
-      end
-    when 'split'
-      new_n = split(n)
-      if n == new_n
-        break
-      else
-        state = 'explode'
-        n = new_n
-      end
+  new_n = explode(n)
+  if n != new_n
+    reduce(new_n)
+  else
+    new_n = split(n)
+    if n != new_n
+      reduce(new_n)
+    else
+      n
     end
   end
-  n
 end
 
 def add(left, right)
