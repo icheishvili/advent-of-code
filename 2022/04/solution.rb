@@ -19,7 +19,7 @@ end
 puts "Part 1: #{coverings.count}"
 
 overlaps = ranges.select do |(r1, r2)|
-  r1.overlaps?(r2) || r2.overlaps?(r1)
+  r1.overlaps?(r2)
 end
 
-puts "Part 1: #{overlaps.count}"
+puts "Part 2: #{overlaps.count}"
